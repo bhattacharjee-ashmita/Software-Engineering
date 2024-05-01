@@ -30,7 +30,7 @@ class Student:
         self.var_prof=StringVar()
 
         #first img
-        img=Image.open(r"C:\Users\Ashmita\Desktop\Face Recognition System\collage_images\Banner2.jpg")
+        img=Image.open(r"Banner2.jpg")
         img=img.resize((1530,150),Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
 
@@ -38,7 +38,7 @@ class Student:
         f_lbl.place(x=0,y=0,width=1530,height=150)
 
         #bg image
-        img1=Image.open(r"C:\Users\Ashmita\Desktop\Face Recognition System\collage_images\BG.jpg")
+        img1=Image.open(r"BG.jpg")
         img1=img1.resize((1530,640),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
@@ -57,7 +57,7 @@ class Student:
         Left_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details",font=("times new roman",12,"bold"))
         Left_frame.place(x=10,y=10,width=760,height=565)
 
-        img_left=Image.open(r"C:\Users\Ashmita\Desktop\Face Recognition System\collage_images\Banner3.jpg")
+        img_left=Image.open(r"Banner3.jpg")
         img_left=img_left.resize((745,130),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_left)
 
@@ -240,7 +240,7 @@ class Student:
         Right_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details",font=("times new roman",12,"bold"))
         Right_frame.place(x=780,y=10,width=720,height=565)
 
-        img_right=Image.open(r"C:\Users\Ashmita\Desktop\Face Recognition System\collage_images\Banner4.jpg")
+        img_right=Image.open(r"Banner4.jpg")
         img_right=img_right.resize((745,130),Image.ANTIALIAS)
         self.photoimg_right=ImageTk.PhotoImage(img_right)
 
