@@ -20,17 +20,17 @@ class Student:
         self.var_semester=StringVar()
         self.var_std_id=StringVar()
         self.var_std_name=StringVar()
-        self.var_div=StringVar()
+        #self.var_div=StringVar()
         self.var_roll=StringVar()
         self.var_gender=StringVar()
         self.var_dob=StringVar()
         self.var_email=StringVar()
         self.var_phone=StringVar()
         self.var_address=StringVar()
-        self.var_prof=StringVar()
+        #self.var_prof=StringVar()
 
         #first img
-        img=Image.open(r"Banner2.jpg")
+        img=Image.open(r"C:\Users\Ashmita\Desktop\Face Recognition System\collage_images\Banner2.jpg")
         img=img.resize((1530,150),Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
 
@@ -38,7 +38,7 @@ class Student:
         f_lbl.place(x=0,y=0,width=1530,height=150)
 
         #bg image
-        img1=Image.open(r"BG.jpg")
+        img1=Image.open(r"C:\Users\Ashmita\Desktop\Face Recognition System\collage_images\BG.jpg")
         img1=img1.resize((1530,640),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
@@ -57,7 +57,7 @@ class Student:
         Left_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details",font=("times new roman",12,"bold"))
         Left_frame.place(x=10,y=10,width=760,height=565)
 
-        img_left=Image.open(r"Banner3.jpg")
+        img_left=Image.open(r"C:\Users\Ashmita\Desktop\Face Recognition System\collage_images\Banner3.jpg")
         img_left=img_left.resize((745,130),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_left)
 
@@ -240,7 +240,7 @@ class Student:
         Right_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details",font=("times new roman",12,"bold"))
         Right_frame.place(x=780,y=10,width=720,height=565)
 
-        img_right=Image.open(r"Banner4.jpg")
+        img_right=Image.open(r"C:\Users\Ashmita\Desktop\Face Recognition System\collage_images\Banner4.jpg")
         img_right=img_right.resize((745,130),Image.ANTIALIAS)
         self.photoimg_right=ImageTk.PhotoImage(img_right)
 
@@ -277,7 +277,7 @@ class Student:
         scroll_x=ttk.Scrollbar(table_frame,orient=HORIZONTAL)
         scroll_y=ttk.Scrollbar(table_frame,orient=VERTICAL)
 
-        self.student_table=ttk.Treeview(table_frame,column=("Dep","Course","Year","Sem","ID","Name","Div","Roll","Gender","DOB","Email","Phone","Address","Professor","Photo"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
+        self.student_table=ttk.Treeview(table_frame,column=("Dep","Course","Year","Sem","ID","Name","Roll","Gender","DOB","Email","Phone","Address","Photo"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
 
         scroll_x.pack(side=BOTTOM,fill=X)
         scroll_y.pack(side=RIGHT,fill=Y)
@@ -290,14 +290,14 @@ class Student:
         self.student_table.heading("Sem",text="Semester")
         self.student_table.heading("ID",text="StudentId")
         self.student_table.heading("Name",text="Name")
-        self.student_table.heading("Div",text="Division")
+        #self.student_table.heading("Div",text="Division")
         self.student_table.heading("Roll",text="Roll No.")
         self.student_table.heading("Gender",text="Gender")
         self.student_table.heading("DOB",text="DOB")
         self.student_table.heading("Email",text="Email")
         self.student_table.heading("Phone",text="Phone No.")
         self.student_table.heading("Address",text="Address")
-        self.student_table.heading("Professor",text="Professor")
+        #self.student_table.heading("Professor",text="Professor")
         self.student_table.heading("Photo",text="Photo Sample Status")
         self.student_table["show"]="headings"
 
@@ -307,14 +307,14 @@ class Student:
         self.student_table.column("Sem",width=100)
         self.student_table.column("ID",width=100)
         self.student_table.column("Name",width=100)
-        self.student_table.column("Div",width=100)
+        #self.student_table.column("Div",width=100)
         self.student_table.column("Roll",width=100)
         self.student_table.column("Gender",width=100)
         self.student_table.column("DOB",width=100)
         self.student_table.column("Email",width=100)
         self.student_table.column("Phone",width=100)
         self.student_table.column("Address",width=100)
-        self.student_table.column("Professor",width=100)
+        #self.student_table.column("Professor",width=100)
         self.student_table.column("Photo",width=150)
 
         self.student_table.pack(fill=BOTH,expand=1)
@@ -329,9 +329,9 @@ class Student:
             messagebox.showerror("Error","All Fields are required",parent=self.root)
         else:
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="Mita@2000",database="face_recognizer")
+                conn=mysql.connector.connect(host="localhost",username="root",password="Ashmita2000",database="face_recognizer")
                 my_cursor=conn.cursor()
-                my_cursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
+                my_cursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
                                     
                                                                                                         self.var_dep.get(),
                                                                                                         self.var_course.get(),
@@ -339,14 +339,14 @@ class Student:
                                                                                                         self.var_semester.get(),
                                                                                                         self.var_std_id.get(),
                                                                                                         self.var_std_name.get(),
-                                                                                                        self.var_div.get(),
+                                                                                                        #self.var_div.get(),
                                                                                                         self.var_roll.get(),
                                                                                                         self.var_gender.get(),
                                                                                                         self.var_dob.get(),
                                                                                                         self.var_email.get(),
                                                                                                         self.var_phone.get(),
                                                                                                         self.var_address.get(),
-                                                                                                        self.var_prof.get(),
+                                                                                                        #self.var_prof.get(),
                                                                                                         self.var_radio1.get()
                                                                                                         ))
                 conn.commit()
@@ -359,7 +359,7 @@ class Student:
 
     #==================fetch data===================
     def fetch_data(self):
-        conn=mysql.connector.connect(host="localhost",username="root",password="Mita@2000",database="face_recognizer")
+        conn=mysql.connector.connect(host="localhost",username="root",password="Ashmita2000",database="face_recognizer")
         my_cursor=conn.cursor()
         my_cursor.execute("select * from student")
         data=my_cursor.fetchall()
@@ -383,14 +383,14 @@ class Student:
         self.var_semester.set(data[3]),
         self.var_std_id.set(data[4]),
         self.var_std_name.set(data[5]),
-        self.var_div.set(data[6]),
+        #self.var_div.set(data[6]),
         self.var_roll.set(data[7]),
         self.var_gender.set(data[8]),
         self.var_dob.set(data[9]),
         self.var_email.set(data[10]),
         self.var_phone.set(data[11]),
         self.var_address.set(data[12]),
-        self.var_prof.set(data[13]),
+        #self.var_prof.set(data[13]),
         self.var_radio1.set(data[14])
 
 
@@ -402,9 +402,9 @@ class Student:
             try:
                 Update=messagebox.askyesno("Update","Do you want to update this student details", parent=self.root)
                 if Update>0:
-                    conn=mysql.connector.connect(host="localhost",username="root",password="Mita@2000",database="face_recognizer")
+                    conn=mysql.connector.connect(host="localhost",username="root",password="Ashmita2000",database="face_recognizer")
                     my_cursor=conn.cursor()
-                    my_cursor.execute("update student set Dep=%s,Course=%s,Year=%s,Semester=%s,Name=%s,Division=%s,Roll=%s,Gender=%s,DOB=%s,Email=%s,Phone=%s,Address=%s,Professor=%s,PhotoSample=%s where Student_id=%s",(
+                    my_cursor.execute("update student set Dep=%s,Course=%s,Year=%s,Semester=%s,Name=%s,Roll=%s,Gender=%s,DOB=%s,Email=%s,Phone=%s,Address=%s,PhotoSample=%s where Student_id=%s",(
 
 
                                                                                                                                                                                             self.var_dep.get(),
@@ -412,14 +412,14 @@ class Student:
                                                                                                                                                                                             self.var_year.get(),
                                                                                                                                                                                             self.var_semester.get(),
                                                                                                                                                                                             self.var_std_name.get(),
-                                                                                                                                                                                            self.var_div.get(),
+                                                                                                                                                                                            #self.var_div.get(),
                                                                                                                                                                                             self.var_roll.get(),
                                                                                                                                                                                             self.var_gender.get(),
                                                                                                                                                                                             self.var_dob.get(),
                                                                                                                                                                                             self.var_email.get(),
                                                                                                                                                                                             self.var_phone.get(),
                                                                                                                                                                                             self.var_address.get(),
-                                                                                                                                                                                            self.var_prof.get(),
+                                                                                                                                                                                            #self.var_prof.get(),
                                                                                                                                                                                             self.var_radio1.get(),
                                                                                                                                                                                             self.var_std_id.get() 
                                                                                                                                                                                         ))
@@ -445,7 +445,7 @@ class Student:
             try:
                 delete=messagebox.askyesno("Delete Record","Do you want to delete this record ?",parent=self.root)
                 if delete>0:
-                    conn=mysql.connector.connect(host="localhost",username="root",password="Mita@2000",database="face_recognizer")
+                    conn=mysql.connector.connect(host="localhost",username="root",password="Ashmita2000",database="face_recognizer")
                     my_cursor=conn.cursor()
                     sql="delete from student where Student_Id=%s"
                     val=(self.var_std_id.get(),)
@@ -465,6 +465,7 @@ class Student:
 
 
     #Reset
+
     def reset_data(self):
         self.var_dep.set("Select Department")
         self.var_course.set("Select Course")
@@ -472,14 +473,14 @@ class Student:
         self.var_semester.set("Select Semester")
         self.var_std_id.set("")
         self.var_std_name.set("")
-        self.var_div.set("Select Division")
+        #self.var_div.set("Select Division")
         self.var_roll.set("")
         self.var_gender.set("Select Gender")
         self.var_dob.set("")
         self.var_email.set("")
         self.var_phone.set("")
         self.var_address.set("")
-        self.var_prof.set("")
+        #self.var_prof.set("")
         self.var_radio1.set("")
 
     #======================== Generate Data set or Take photo Samples =======================
@@ -488,14 +489,14 @@ class Student:
               messagebox.showerror("Error","All Fields are required",parent=self.root)
         else:
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="Mita@2000",database="face_recognizer")
+                conn=mysql.connector.connect(host="localhost",username="root",password="Ashmita2000",database="face_recognizer")
                 my_cursor=conn.cursor()
                 my_cursor.execute("select * from student")
                 myresult=my_cursor.fetchall()
                 id=0
                 for x in myresult:
                     id+=1
-                my_cursor.execute("update student set Dep=%s,Course=%s,Year=%s,Semester=%s,Name=%s,Division=%s,Roll=%s,Gender=%s,DOB=%s,Email=%s,Phone=%s,Address=%s,Professor=%s,PhotoSample=%s where Student_id=%s",(
+                    my_cursor.execute("update student set Dep=%s,Course=%s,Year=%s,Semester=%s,Name=%s,Roll=%s,Gender=%s,DOB=%s,Email=%s,Phone=%s,Address=%s,PhotoSample=%s where Student_id=%s",(
 
 
                                                                                                                                                                                             self.var_dep.get(),
@@ -503,14 +504,14 @@ class Student:
                                                                                                                                                                                             self.var_year.get(),
                                                                                                                                                                                             self.var_semester.get(),
                                                                                                                                                                                             self.var_std_name.get(),
-                                                                                                                                                                                            self.var_div.get(),
+                                                                                                                                                                                            #self.var_div.get(),
                                                                                                                                                                                             self.var_roll.get(),
                                                                                                                                                                                             self.var_gender.get(),
                                                                                                                                                                                             self.var_dob.get(),
                                                                                                                                                                                             self.var_email.get(),
                                                                                                                                                                                             self.var_phone.get(),
                                                                                                                                                                                             self.var_address.get(),
-                                                                                                                                                                                            self.var_prof.get(),
+                                                                                                                                                                                            #self.var_prof.get(),
                                                                                                                                                                                             self.var_radio1.get(),
                                                                                                                                                                                             self.var_std_id.get()==id+1
                                                                                                                                                                                         ))
@@ -533,10 +534,11 @@ class Student:
                         face_cropped=img[y:y+h,x:x+w]
                         return face_cropped
                     
-                cap=cv2.VideoCapture(1)
+                cap=cv2.VideoCapture(0)
                 img_id=0
                 while True:
                     ret,my_frame=cap.read()
+                    print(my_frame)
                     if face_cropped(my_frame) is not None:
                         img_id+=1
                         face=cv2.resize(face_cropped(my_frame),(450,450))
